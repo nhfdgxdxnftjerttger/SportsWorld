@@ -1,0 +1,41 @@
+class Sport:
+    def __init__(self, name, rules, equipment):
+        self.name = name
+        self.rules = rules
+        self.equipment = equipment
+
+    def display_sport(self):
+        print(f"Sport: {self.name}")
+        print("Rules:")
+        for rule in self.rules:
+            print(f"- {rule}")
+        print("Equipment:")
+        for item in self.equipment:
+            print(f"- {item}")
+        print()
+
+class SportRepository:
+    def __init__(self):
+        self.sports = []
+
+    def add_sport(self, sport):
+        self.sports.append(sport)
+
+    def display_sports(self):
+        if not self.sports:
+            print("No sports in the repository.")
+        else:
+            print("Sports in the Repository:")
+            for sport in self.sports:
+                sport.display_sport()
+
+if __name__ == '__main__':
+    repository = SportRepository()
+
+    sport1 = Sport("Football", ["Two teams of 11 players each.", "The objective is to score more goals than the opposing team."], ["Football", "Goalposts", "Jerseys", "Shin guards"])
+    repository.add_sport(sport1)
+
+    sport2 = Sport("Basketball", ["Two teams of 5 players each.", "The objective is to score more points than the opposing team by shooting the ball into the opponent's hoop."], ["Basketball", "Hoop", "Jerseys", "Basketball shoes"])
+    repository.add_sport(sport2)
+
+    repository.display_sports()
